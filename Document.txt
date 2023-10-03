@@ -1,0 +1,21 @@
+                    assetOptimzeX Project
+                  __________________________
+My Work Doucument:
+1. This Project My team leader give me User Authenticate System 
+   . I use Django Rest Framework API
+     * Authentication Feature-> Registration, Login, Forgot Password, Change Password
+     * Registration: JWT Token Generation, Data Validation, User Registration Process, User Data Storge
+     * Login: User Login Process, JWT Token Authentication, Security Measues
+     * Forgot Password: Password Reset Process, Email Verification, Token Expiration
+     * Change Password: Password Change Process, Token Validation Password Encryption
+Security: JWT Security, Data Encryption, Authentication and Authorization
+
+Technologies Used::
+Programming Languages-> Python
+Framework->Django Rest Framework
+Tools-> git
+
+
+
+
+

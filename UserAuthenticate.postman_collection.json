@@ -1,0 +1,447 @@
+{
+	"info": {
+		"_postman_id": "6b551306-71a8-46b6-89e5-64a35627a588",
+		"name": "UserAuthenticate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29137547"
+	},
+	"item": [
+		{
+			"name": "user-Registration",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Abdul Hasib",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "abdulhasib2030@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "0123456789",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abdulhasib2030@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-changepassword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MDA2OTI1LCJpYXQiOjE2OTYwMDU3MjUsImp0aSI6IjJiNGVjMDQ0MDdlNTQ4MjA5ZmU5ODU3OTcxYTE1MGYyIiwidXNlcl9pZCI6MTd9.LdobkSYQRH9o0_uBJU-ZjdP2UcnPyekLLiwVQLtBtBg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/changepassword/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"changepassword",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MDA2OTI1LCJpYXQiOjE2OTYwMDU3MjUsImp0aSI6IjJiNGVjMDQ0MDdlNTQ4MjA5ZmU5ODU3OTcxYTE1MGYyIiwidXNlcl9pZCI6MTd9.LdobkSYQRH9o0_uBJU-ZjdP2UcnPyekLLiwVQLtBtBg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-forgot-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "abdulhasib2030@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/send-reset-password-email/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"send-reset-password-email",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user-emailVarification-change-password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "text"
+						},
+						{
+							"key": "password2",
+							"value": "123456789",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/reset-password/MTc/bvb8oa-70b7c916aba386010de936c89a49108a/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"reset-password",
+						"MTc",
+						"bvb8oa-70b7c916aba386010de936c89a49108a",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile-update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MTYxMjUxLCJpYXQiOjE2OTYxNjAwNTEsImp0aSI6ImNlZmQwZWE1YWZiMTRjMjk4MmQ1ZTU1NWM0YTk5MmEzIiwidXNlcl9pZCI6MTF9.SdgFEd3vg7zri3qaxG96oU_8iQHoz3b48hIG9iBUsZU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "alu",
+							"type": "text"
+						},
+						{
+							"key": "bio",
+							"value": "df",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "ffd",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "fd",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/profile-update/11/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"profile-update",
+						"11",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "organization-register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MTY3NTkwLCJpYXQiOjE2OTYxNjYzOTAsImp0aSI6ImZhYWQzMjcxMTExNDRlOGZiZjkyNjRiMGRiY2M3ZDhkIiwidXNlcl9pZCI6MTF9.2FhVEtNZJYvdcqBHuDMnhDK5eprStkyR7580hZt5ErI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "organization_name",
+							"value": "asseOptimzeX1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "So lazy",
+							"type": "text"
+						},
+						{
+							"key": "country",
+							"value": "Bangladesh",
+							"type": "text"
+						},
+						{
+							"key": "zip_code",
+							"value": "1207",
+							"type": "text"
+						},
+						{
+							"key": "company_phone_number",
+							"value": "0171892020441",
+							"type": "text"
+						},
+						{
+							"key": "tc",
+							"value": "True",
+							"type": "text"
+						},
+						{
+							"key": "user",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/organization/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"organization",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "organization-register-active",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk2MjI5MDAzLCJpYXQiOjE2OTYyMjc4MDMsImp0aSI6IjkxNzE0M2RjZDMwZjQ1OGI5NDEwZDNjN2U4YmUzZmIwIiwidXNlcl9pZCI6M30.x3d9Xetbmzi6V5HnJQQhlf5BfCjnbQmiGqYlP0UPmnU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/organization/register/Mw/bvfzvs-43747f7916bdbccf93bbec72c7386817/assetOptimzeX2/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"organization",
+						"register",
+						"Mw",
+						"bvfzvs-43747f7916bdbccf93bbec72c7386817",
+						"assetOptimzeX2",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
