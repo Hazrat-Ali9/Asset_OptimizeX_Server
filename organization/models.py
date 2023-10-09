@@ -14,6 +14,7 @@ class Organization(models.Model):
   country = models.CharField(max_length=100)
   zip_code = models.CharField(max_length=50)
   company_phone_number = models.IntegerField(unique=True)
+  
 
   def __str__(self):
       return self.organization_name
@@ -21,5 +22,8 @@ class Organization(models.Model):
   def save(self, *args, **kwargs):
     self.slug = slugify(self.organization_name)
     super(Organization, self).save(*args, **kwargs)
+    
+
+  
   
   
