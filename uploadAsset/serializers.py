@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from .models import uploadAsset,AssetVersion
-
+        
 class uploadAssetSerializer(serializers.ModelSerializer):
     class Meta:
         model = uploadAsset
-        fields = ['id','user','title','library','description', 'asset','location','created_at','updated_at','comment','tags','versions']
+        fields = ['id', 'organization', 'title', 'library', 'description', 'asset', 'location']
+        
+            
 
 class PreviousVersionSerializer(serializers.ModelSerializer):
     class Meta:

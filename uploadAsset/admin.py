@@ -11,7 +11,8 @@ class AssetVersionAdmin(admin.ModelAdmin):
 
 class uploadAssetAdmin(admin.ModelAdmin):
   list_display = ['title']
-    
+class tagAdmin(admin.ModelAdmin):
+  list_display = ('id', 'tag_name')
 admin.site.register(uploadAsset, uploadAssetAdmin)
 admin.site.register(AssetVersion, AssetVersionAdmin)
-admin.site.register(Tag)
+admin.site.register(Tag, tagAdmin)

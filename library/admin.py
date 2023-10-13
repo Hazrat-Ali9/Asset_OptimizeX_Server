@@ -5,5 +5,5 @@ from .models import Library
 
 class LibraryAdmin(admin.ModelAdmin):
   prepopulated_fields = {'slug':('library_name',)}
-  list_display = ['library_name', 'created_date']
+  list_display = ['id','library_name', 'created_date']
 admin.site.register(Library, LibraryAdmin)
