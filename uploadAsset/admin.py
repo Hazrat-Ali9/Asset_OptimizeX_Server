@@ -10,7 +10,7 @@ class AssetVersionAdmin(admin.ModelAdmin):
     asset_name.short_description = 'Asset Name'
 
 class uploadAssetAdmin(admin.ModelAdmin):
-  list_display = ['title']
+  list_display = ['title', 'id']
 class tagAdmin(admin.ModelAdmin):
   list_display = ('id', 'tag_name')
 admin.site.register(uploadAsset, uploadAssetAdmin)

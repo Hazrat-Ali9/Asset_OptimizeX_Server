@@ -3,6 +3,9 @@ from library.models import Library
 from account.models import User
 from django.utils import timezone
 from organization.models import Organization
+from PIL import Image
+from py7zr import SevenZipFile
+import os
 
 # Create your models here.
 class Tag(models.Model):
@@ -13,17 +16,14 @@ class Tag(models.Model):
 
 
 class AssetVersion(models.Model):
-    asset_id = models.PositiveIntegerField(null=True)
     title = models.CharField(max_length=100)
     asset = models.FileField(upload_to='images/company/asset_versions/')
     created_at = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
         return self.title
-    
-    
 class uploadAsset(models.Model):
-    organization = models.ForeignKey(Organization, on_delete=models.CASCADE, null=True)
+    organization = models.ForeignKey(Organization, on_delete=models.CASCADE,null=True)
     library = models.ForeignKey(Library, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     asset = models.FileField(upload_to='images/company/asset/', null=True)
@@ -34,14 +34,20 @@ class uploadAsset(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     versions = models.ManyToManyField(AssetVersion, blank=True)
+    
 
     def save(self, *args, **kwargs):
         # Check if the asset file has changed
+        
+
+        # with SevenZipFile(self.asset.path, mode = 'w') as f:
+        #     f.write(self.asset.path, compression_level = 9)
+        #     os.rename(f.filename, self.asset.path)
         if self.pk:
             existing_asset = uploadAsset.objects.get(pk=self.pk)
             if existing_asset.asset != self.asset:
                 # Create a new version if the asset has changed
-                asset_version = AssetVersion(asset_id=existing_asset.id, asset=existing_asset.asset)
+                asset_version = AssetVersion(asset=existing_asset.asset)
                 asset_version.save()
                 self.versions.add(asset_version)
         super(uploadAsset, self).save(*args, **kwargs)

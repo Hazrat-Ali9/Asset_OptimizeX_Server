@@ -33,20 +33,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
   def create(self, validate_data):   
     return User.objects.create_user(**validate_data)
   
-######### Register  Accout Active Serializer ############
-# class RegisterAccountSerializer(serializers.Serializer):
-  # def validate(self, attrs):
-  #   uid = self.context.get('uid')
-  #   token = self.context.get('token')
-  #   id = smart_str(urlsafe_base64_decode(uid))
-  #   user = User.objects.get(id = id)
-  #   if user is not None:
-  #     user.is_active = True
-  #     user.save()
-  #     return attrs
-  #   else:
-  #     raise ValidationError('Token is not Valid or Expired')
-  
+
 ########## User Login Serializers #################
 class UserLoginSerializer(serializers.ModelSerializer):
   email = serializers.EmailField(max_length=255)
@@ -64,18 +51,18 @@ class UserProfileSerializer(serializers.ModelSerializer):
 class UserProfileUpdateSerializer(serializers.ModelSerializer):
   class Meta:
     model = User
-    fields = ['name', 'bio', 'country', 'zip_code']  
-  def update(self, instance, validated_data):
-        user = self.context['request'].user
-        if user.pk != instance.pk:
-            raise serializers.ValidationError({"authorize": "You dont have permission for this user."})
-        instance.name = validated_data['name']
-        instance.bio = validated_data['bio']
-        instance.country = validated_data['country']
-        instance.zip_code = validated_data['zip_code']
+    fields = ['name', 'phone_number', 'image', 'bio', 'country', 'zip_code', 'email']  
+  # def update(self, instance, validated_data):
+  #       user = self.context['request'].user
+  #       if user.pk != instance.pk:
+  #           raise serializers.ValidationError({"authorize": "You dont have permission for this user."})
+  #       instance.name = validated_data['name']
+  #       instance.bio = validated_data['bio']
+  #       instance.country = validated_data['country']
+  #       instance.zip_code = validated_data['zip_code']
 
-        instance.save()
-        return instance
+  #       instance.save()
+  #       return instance
     
   
 ####### user Change password Serializer #####

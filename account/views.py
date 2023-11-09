@@ -25,57 +25,17 @@ def get_tokens_for_user(user):
         'access': str(refresh.access_token),
     }
 
+########## User Account Register View ###############
 class UserRegistrationView(APIView):
   renderer_classes = [UserRenderer]
   
   def post(self, request, format = None):
     serializer = UserRegistrationSerializer(data= request.data)   
     serializer.is_valid(raise_exception=True) #### raise exception use, not required if or else
-    user = serializer.save()
-      # def email check option:
-        # email = serializer.data.get('email')
-        
-        # user = User.objects.get(email=email)
-        # uid = urlsafe_base64_encode(force_bytes(user.id)) ### User id Encode
-        
-        # print("Encoded UID ", uid)
-        # token = default_token_generator.make_token(user) #### Register token update
-        # print("Accoun Active Token", token)
-        
-        # link =  str('http://localhost:3000/api/user/reset/') ### redirect link
-        
-        # print("Account reset link", link+str(uid)+ "/"+str(token))
-        
-        # body = 'Click Following Link to Active Your Account ' + link+str(uid)+ "/"+str(token)
-        # data = {
-        #   'subject' :'Active Your Account ',
-        #   'body': body,
-        #   'to_email': user.email,
-          
-        # }
-        # Util.send_email(data)
-      
+    user = serializer.save()  
     token = get_tokens_for_user(user)
     return Response({'token':token, 'msg':'Registration Successful'}, status=status.HTTP_201_CREATED)
 
-      # return Response({
-      #     'status':200,
-      #     'message': 'registration successfully check email',
-      #     'data': serializer.data,
-      #   })
-        
-    # return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
-
-########### Register Account Activate ###################
-# class RegisterAccountActivate(APIView):
-  # renderer_classes = [UserRenderer]
-  # def post(self, request, uid, token,format= None):
-  #   serializer = RegisterAccountSerializer(data= request.data, context = {'uid':uid, 'token':token})
-  #   if serializer.is_valid(raise_exception=True):
-  #     return Response({
-  #       'msg':'Account Active Successfully'
-  #     })
-  #   return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
 ########### Login ################
 class UserLoginView(APIView):
@@ -132,7 +92,7 @@ class UserPasswordResetView(APIView):
     serializer = UserPasswordResetSerializer(data=request.data, context = {'uid': uid, 'token': token})
     serializer.is_valid(raise_exception= True)
     return Response({'msg': 'password change successfully'}, status=status.HTTP_200_OK)
-    # return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+    
 
 
 

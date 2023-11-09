@@ -5,8 +5,9 @@ from account.views import *
 
 
 urlpatterns = [
+
     path('register/', UserRegistrationView.as_view(), name = 'register'),
-    # path('register/<uid>/<token>/', RegisterAccountActivate.as_view(), name = 'active-account'),
+    
     path('login/', UserLoginView.as_view(), name = 'login'),
     path('profile/', UserProfileView.as_view(), name = 'profile'),
     path('profile-update/<int:pk>/', UserUpdateProfileView.as_view(), name = 'profile-update'),

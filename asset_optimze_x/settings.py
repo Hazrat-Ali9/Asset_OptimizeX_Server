@@ -37,16 +37,22 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #### package #####
     'corsheaders',    ######## corsheader
     'rest_framework',
-    'rest_framework_simplejwt', ####### JWT token add
+    'rest_framework_simplejwt',####### JWT token add
+    'django_filters',
+    
+    #### App ####
     'account',
     'organization',
-
     'uploadAsset',
     'category',
     'library',
-       
+    'share_assets',
+    'contact',
+    'feedback',
+
 ]
 
 
@@ -90,7 +96,7 @@ WSGI_APPLICATION = 'asset_optimze_x.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-############ MySQL Database Add ##############
+
 DATABASES = {
     'default': {
 
@@ -98,6 +104,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 # Password validation
@@ -153,7 +161,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
     # , ####Web browser a JSON format data show korbe
     # 'DEFAULT_RENDERER_CLASSES':('rest_framework.renderers.JSONRenderer',)
 }
@@ -184,10 +193,7 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-    
-]
+
 
 ######## Reset password Email Token Time limit ##########
 PASSWORD_RESET_TIMEOUT = 900 ### second
