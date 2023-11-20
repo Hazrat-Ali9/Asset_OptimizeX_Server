@@ -5,7 +5,7 @@ from django.utils import timezone
 from organization.models import Organization
 from PIL import Image
 from py7zr import SevenZipFile
-
+import os
 
 # Create your models here.
 class Tag(models.Model):
