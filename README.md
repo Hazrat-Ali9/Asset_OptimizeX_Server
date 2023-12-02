@@ -33,3 +33,11 @@ _____________________________________________
 # pip install shortuuid
 # pip install py7zr
 # pip install django-filter
+
+# Hazrat Ali
+
+# Software Engineer
+
+# Project Name : Asset Optimex 
+
+# Live Site : https://asset-optimizex.netlify.app
